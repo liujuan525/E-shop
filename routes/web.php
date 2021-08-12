@@ -20,3 +20,7 @@ Route::get('/', 'PagesController@root')->name('root');
 // 用户认证路由
 Auth::routes(['verify' => true]);
 
+Route::group(['middleware' => ['auth', 'verified']], function () {
+    Route::get('user_addresses', 'UserAddressesController@index')->name('user_addresses.index');
+});
+

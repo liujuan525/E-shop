@@ -14,7 +14,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', 'PagesController@root')->name('root');
+// 添加了邮箱验证功能
+//Route::get('/', 'PagesController@root')->name('root')->middleware('verified');
 
 // 用户认证路由
-Auth::routes();
+Auth::routes(['verify' => true]);
 

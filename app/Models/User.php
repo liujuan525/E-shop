@@ -6,10 +6,13 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Encore\Admin\Traits\DefaultDatetimeFormat;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
     use HasFactory, Notifiable;
+    // 日期格式转换
+    use DefaultDatetimeFormat;
 
     /**
      * The attributes that are mass assignable.
